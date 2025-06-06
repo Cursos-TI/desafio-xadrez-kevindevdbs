@@ -1,5 +1,39 @@
 #include <stdio.h>
 
+void MoverBispo(int casas) // Recursividade para Mover Bispo
+{
+    if(casas > 0){
+        printf("Bispo : Cima\n");
+        MoverBispo(casas - 1);
+    }
+}
+void MoverTorre(int casas) //Recursividade para Mover Torre
+{
+    if(casas > 0){
+        printf("Torre : Direita\n");
+        MoverTorre(casas - 1);
+    }
+}
+void MoverRainha(int casas) //Recursividade para Mover Rainha
+{
+    if(casas > 0){
+        printf("Rainha : Esquerda\n");
+        MoverRainha(casas - 1);
+    }
+}
+void MoverCavalo(int casas) //Recursividade para Mover Cavalo
+{
+        while (casas < 1) 
+    {
+        for (int i = 0; i < 2; i++) 
+        {
+            printf("Cavalo : Baixo\n");
+        }
+        printf("Cavalo : Esquerda\n");
+        casas++;
+    }
+}
+
 int main()
 {
     //Variaveis para o Xadrez
@@ -11,34 +45,13 @@ int main()
 
     //Movimentação das Peças
 
-    while (torre < 5) // Move a torre 5 vezes a direta
-    {
-        printf("Torre : Direita\n");
-        torre++;
-    }
-
-    do // Move o bispo 5 vezes para cima e para a direita
-    {
-        printf("Bispo : Cima , Direita\n");
-        bispo++;
-
-    } while (bispo < 5);
-
-    for (rainha = 0; rainha < 8; rainha++) // Move a rainha 8 vezes para a esquerda
-    {
-        printf("Rainha : Esquerda \n");
-    }
-
-    while (cavalo < 1) // Move o cavalo para a esquerda
-    {
-        for (int i = 0; i < 2; i++) // Move o cavalo 2 vezes para baixo
-        {
-            printf("Cavalo : Baixo\n");
-        }
-        printf("Cavalo : Esquerda\n");
-        cavalo++;
-    }
-    
+    MoverBispo(5);
+    printf("==========================\n");
+    MoverCavalo(0);
+    printf("==========================\n");
+    MoverRainha(8);
+    printf("==========================\n");
+    MoverTorre(5);
 
     return 0;
 }
